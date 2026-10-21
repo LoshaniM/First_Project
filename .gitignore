@@ -1,0 +1,26 @@
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and Temporary files
+*.log
+scratch/
+tmp/
+temp/
+
+# Environment and local overrides
+.env
+.env.local
+
+# Allow assets/images/uploads directory structure but exclude user-uploaded images if desired
+assets/images/uploads/*
+!assets/images/uploads/.gitkeep
