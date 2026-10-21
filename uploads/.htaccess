@@ -1,0 +1,26 @@
+# Block PHP Execution in Uploads Directory
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+
+# Prevent script handlers
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .cgi .pl .py .sh
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .cgi .pl .py .sh
+
+# Only allow legitimate image files
+<FilesMatch "\.(?i:jpe?g|png|gif|webp|svg|ico)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Deny all others (especially .php, .exe, .sh, etc.)
+<FilesMatch "\.(?i:php[0-9]?|phtml|phps|pl|py|jsp|asp|sh|cgi|exe)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
